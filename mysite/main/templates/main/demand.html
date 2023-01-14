@@ -1,0 +1,45 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1 class="gray-highlight">ИТ-сфера востребована</h1>
+<h2 style="font-weight: 400;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h2>
+<img style="width:100%" src={{image.file.url}}>
+
+<h2 style="font-weight: 400; margin: 10px 0;">Статистика по годам</h2>
+<table style="border-collapse: collapse;
+            width: 100%;">
+        <thead>
+        <tr>
+            {% for head in heads %}
+                {% if head != "None" %}
+                    <th>{{ head }}</th>
+                {% else %}
+                    <th></th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+      <thead>
+     <tbody>
+        {% for row in excel_data %}
+        <tr>
+             {% for cell in row %}
+                {% if cell != "None" %}
+                    <td>{{ cell }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
